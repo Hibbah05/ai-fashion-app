@@ -1,3 +1,4 @@
+import { API_URL } from '../config';
 import React, { useState, useRef, useEffect } from 'react';
 import {
   StyleSheet, Text, View, TextInput, TouchableOpacity,
@@ -91,19 +92,15 @@ export default function LoginScreen({ navigation }) {
 
     setIsLoading(true);
     runLoadBar();
+ // 🔥 REPLACE WITH YOUR NGROK URL FROM THE BROWSER 🔥
 
     const endpoint = isLoginMode ? '/login' : '/register';
-    const API_URL  = "http://192.168.0.104:5000" + endpoint; // 🔥 REPLACE WITH YOUR NGROK URL FROM THE BROWSER 🔥
 
-    try {
-      const response = await fetch(API_URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'ngrok-skip-browser-warning': 'true',
-        },
-        body: JSON.stringify({ username: username.trim(), password }),
-      });
+const response = await fetch(`${API_URL}${endpoint}`, {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ username: username.trim(), password }),
+});
 
       const data = await response.json();
       if (!response.ok) throw new Error(data.error || 'Transmission failed.');

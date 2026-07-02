@@ -1,3 +1,4 @@
+import { API_URL } from '../config';
 import React, { useState, useCallback } from 'react';
 import {
   StyleSheet, Text, View, TouchableOpacity, Image,
@@ -32,7 +33,6 @@ const darkTheme = {
 const IS_WEB = Platform.OS === 'web';
 
 // ─── Same IP as your other screens — update if it changes ─────────────────
-const API_URL = "http://192.168.0.104:5000";
 
 export default function WardrobeScreen({ navigation }) {
   const isDark = useColorScheme() === 'dark';

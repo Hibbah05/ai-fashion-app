@@ -1,3 +1,4 @@
+import { API_URL } from '../config';
 import React, { useRef, useState, useEffect, useMemo } from 'react';
 import {
   StyleSheet, Text, View, Pressable, Animated,
@@ -37,7 +38,7 @@ const darkTheme = {
 };
 
 const IS_WEB = Platform.OS === 'web';
-const NGROK  = 'http://192.168.0.104:5000'; // <-- update this if your PC's IP changes
+ // <-- update this if your PC's IP changes
 
 // ─── Thermal Comfort Index ────────────────────────────────────────────────────
 function calcThermalIndex(tempStr, summary = '') {
@@ -127,12 +128,11 @@ export default function HomeScreen({ navigation }) {
   useEffect(() => {
     const fetchWeather = async () => {
       try {
-        const res = await fetch(`${NGROK}/weather`, {
-          headers: {
-            'Accept': 'application/json',
-            'ngrok-skip-browser-warning': 'true',
-          },
-        });
+        const res = await fetch(`${API_URL}/weather`, {
+  headers: {
+    'Accept': 'application/json',
+  },
+});
         if (!res.ok) return;
         const json = await res.json();
         const data = {

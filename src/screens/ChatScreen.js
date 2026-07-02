@@ -1,3 +1,4 @@
+import { API_URL } from '../config';
 import React, { useState, useRef, useEffect, useMemo } from 'react';
 import {
   StyleSheet, Text, View, TextInput, TouchableOpacity,
@@ -7,7 +8,7 @@ import {
 import * as ImagePicker from 'expo-image-picker';
 
 // ─── API URL ──────────────────────────────────────────────────────────────
-const API_URL = "http://192.168.0.104:5000"; // <-- update this if your PC's IP changes
+ // <-- update this if your PC's IP changes
 
 // ─── Design Tokens ────────────────────────────────────────────────────────────
 const lightTheme = {
