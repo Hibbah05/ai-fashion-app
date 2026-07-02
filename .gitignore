@@ -1,0 +1,43 @@
+# ── Node / Expo (src/) ──
+**/node_modules/
+**/.expo/
+**/.expo-shared/
+dist/
+web-build/
+*.log
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# ── Python / Flask (backend/, database/) ──
+**/__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+
+# ── Local runtime data - don't commit ──
+backend/wardrobe_images/
+database/app.db
+database/wardrobe_data.json
+database/wardrobe_images/
+
+# ── Secrets / environment ──
+.env
+.env.local
+
+# ── Third-party tools ──
+ngrok.exe
+ngrok
+
+# ── OS / Editor ──
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ── AI tool session files (remove these two lines if you want to KEEP them as AI-usage evidence) ──
+**/.claude/
+src/AGENTS.md
+src/CLAUDE.md
