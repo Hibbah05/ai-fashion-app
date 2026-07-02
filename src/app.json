@@ -17,10 +17,7 @@
       "bundleIdentifier": "com.yourcompany.maison",
       "infoPlist": {
         "NSAppTransportSecurity": {
-          "NSAllowsArbitraryLoads": true,
-          "NSAllowsArbitraryLoadsForMedia": true,
-          "NSAllowsArbitraryLoadsInWebContent": true,
-          "NSExceptionAllowsInsecureHTTPLoads": true
+          "NSAllowsArbitraryLoads": true
         }
       }
     },
@@ -30,13 +27,12 @@
         "backgroundColor": "#D9CFCB"
       },
       "package": "com.yourcompany.maison",
-      "permissions": [
-        "INTERNET",
-        "ACCESS_NETWORK_STATE"
-      ]
+      "permissions": ["INTERNET", "ACCESS_NETWORK_STATE"]
     },
     "web": {
-      "favicon": "./assets/favicon.png"
-    }
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": []
   }
 }
