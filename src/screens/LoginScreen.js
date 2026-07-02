@@ -92,15 +92,14 @@ export default function LoginScreen({ navigation }) {
 
     setIsLoading(true);
     runLoadBar();
- // 🔥 REPLACE WITH YOUR NGROK URL FROM THE BROWSER 🔥
 
-    const endpoint = isLoginMode ? '/login' : '/register';
-
-const response = await fetch(`${API_URL}${endpoint}`, {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ username: username.trim(), password }),
-});
+    try {
+      const endpoint = isLoginMode ? '/login' : '/register';
+      const response = await fetch(`${API_URL}${endpoint}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username: username.trim(), password }),
+      });
 
       const data = await response.json();
       if (!response.ok) throw new Error(data.error || 'Transmission failed.');
